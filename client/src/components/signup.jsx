@@ -73,7 +73,7 @@ function SignUp (){
 
 
       function LoginUser(email){//method which sets the current user property of the class to the user who just succesfully signed in using google, this method will be used in the google onsuccess response method
-        axios.get("http://localhost:5000/users/"+ email)//makes a get request to the specified route which will return the user info from the database and stores it in the currentUser property of the class
+        axios.get("https://next-world.herokuapp.com/users/"+ email)//makes a get request to the specified route which will return the user info from the database and stores it in the currentUser property of the class
           .then(user=> {  //if user is found then it executes the liens of code below
           console.log(user.data)
           setUser(JSON.stringify(user.data))

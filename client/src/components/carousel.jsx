@@ -21,7 +21,7 @@ constructor(props){//initializes viewusers class
 
 // -------------------------componentDid Mount--------------------------------
 componentDidMount(){//executes when page is initially loaded
-  axios.get("http://localhost:5000/users/")//makes a get request which returns json objects which get stored in an array
+  axios.get("https://next-world.herokuapp.com/users/")//makes a get request which returns json objects which get stored in an array
     .then(response => {//stores the responss.data inside the users array
       this.setState({ users: response.data})
     })
