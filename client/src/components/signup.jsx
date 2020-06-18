@@ -50,7 +50,7 @@ function SignUp (){
                  avatar: "",
                  coins: "1000"
                }
-                 axios.post("http://localhost:5000/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
+                 axios.post("/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
                  .then(res => console.log(res.data))
             //  console.log(authenticatedResponse)
             }//end of the else statement
