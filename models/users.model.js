@@ -15,7 +15,8 @@ Username:{
   MonthlyParticipation: String,
   BadgeCount: String,
   Avatar: String,
-  Coins: String
+  Coins: String,
+  Items: Array
 },{
   timestamps: true, //sets a time stamp for when the user enters their information and gets saved t othe databse.
 })

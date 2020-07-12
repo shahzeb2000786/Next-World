@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 
 function Header(){
-  
+
   return (
 
     <div className = "header-footer-div  pb-1">
@@ -21,6 +21,7 @@ function Header(){
         <a className="dropdown-item" href="profile">Profile</a>
         <a className="dropdown-item" href="viewusers">View Users</a>
         <a className="dropdown-item" href="additem">Add Item</a>
+
       </div>
     </div>
 

@@ -7,7 +7,7 @@ import carousel from "./components/carousel.jsx"
 import AddItem from "./components/additem.jsx"
 import Inventory from "./components/inventory.jsx"
 import Profile from "./components/profile.jsx"
-
+import Store from "./components/store.jsx"
 
 import {BrowserRouter as Router, Route} from "react-router-dom"//imports Browser Router in the form of Router and route from react-router-dom
 import "bootstrap/dist/css/bootstrap.min.css"//requires the normal bootstrap that was installed
@@ -16,7 +16,7 @@ import './App.css';
 
 
 function App(){
-  
+
 
     return(
 
@@ -24,6 +24,8 @@ function App(){
      <Route path = "/" exact component = {Leaderboard}/>
      <Route path = "/viewusers" exact component = {ViewUsers}/>
      <Route path = "/inventory" exact component = {Inventory}/>
+     <Route path = "/store" exact component = {Store}/>
+
      <Route path = "/additem" exact component = {AddItem}/>
 
      <Route path = "/profile" exact component = {Profile}/>

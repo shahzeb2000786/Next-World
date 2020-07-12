@@ -5,7 +5,7 @@ import Header from "./header.jsx"
 import Footer from "./footer.jsx"
 import Carousel from "./carousel.jsx"
 
-const user = localStorage.getItem("User")
+const user = localStorage.getItem("User")//gets user info from lcoal storage if it exists
 console.log(user)
 function Leaderboard(){
   return (

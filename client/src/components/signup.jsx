@@ -48,9 +48,10 @@ function SignUp (){
                  monthlyparticipation: "",
                  badgecount: "",
                  avatar: "",
-                 coins: "1000"
+                 coins: "2222",
+                 items: [{Name: "Bostaff", Price: "0", Rarity: "Common"} ]
                }
-                 axios.post("https://next-world.herokuapp.com/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
+                 axios.post("http://localhost:5000/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
                  .then(res => console.log(res.data))
             //  console.log(authenticatedResponse)
             }//end of the else statement
@@ -116,8 +117,9 @@ function SignUp (){
     return(
     <div>
     <Header/>
+    <div className="text-center">
+
     {displayCurrentUser(user)}   {/*calls the displayCurrentUser function defined above to render an h1 which changes based on if the user is signed in or not*/}
-    <div className="center">
     <GoogleLogin//thisis a google signin/oauth button
      clientId="861886921420-t33isa28bs9a5rktm3qf594bvnml89oc.apps.googleusercontent.com"
      buttonText="Login"

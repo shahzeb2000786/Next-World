@@ -40,6 +40,7 @@ export default class AddItem extends Component{
 
 onSubmit(e){
   e.preventDefault();
+  console.log(e.target)
   const item = {
     name: this.state.name,
     price: this.state.price,
