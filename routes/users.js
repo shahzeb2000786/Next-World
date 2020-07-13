@@ -51,6 +51,7 @@ newUser.save()//saves the users and then executes either the .then or .catch fun
 
 router.route("/:email").get((req,res)=>{// this will render when the /users/"someemail" is hit up. this is a get route which uses express params to render the object with the speciifed if a request is made to that route
   User.findOne({Email: req.params.id})//finds a particular user by their email
+
   .then(user => res.json(user))//sends the user info via server
   .catch(err=> res.status(400).json("Error: " + err))//sends an error  message if there was one
 })
@@ -81,6 +82,7 @@ router.route("/update/:email").post((req,res)=>{// this will execute if /users/u
     .catch(err=> res.status(400).json("Error: " + err))
 
     })//updates the user by first finding the unique user by using their email field
+
 
 
 

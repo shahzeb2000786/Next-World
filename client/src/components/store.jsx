@@ -30,6 +30,7 @@ export default class Store extends Component{
   }
 
   onSubmit(e){//// TODO:add an alert box or redirect if a person is not signed in and make sure they can't buy items that are higher than their current amount of coins
+
     e.preventDefault();
     let purchasedItemName = (e.target.id) //sets purchaseditemname equal to the name of the item that was clicked (in this case it targets the form id of the form that was submitted which has been set to the item's name)
     let getPurchasedItemUrl = "http://localhost:5000/items/" + purchasedItemName   //sets a url which will be used to get the clicked item's info via a get request.
@@ -61,10 +62,12 @@ export default class Store extends Component{
 
       })
 
+
       .catch(error => {//catc hes any errors in the get request
         console.log("failure")
         console.log(error)
       })
+
   }
 
 
@@ -74,6 +77,7 @@ export default class Store extends Component{
       return (
         <div>
         <form id = {currentItem.Name} onSubmit = {this.onSubmit} action= "items/add" method="post">
+
         <button type="submit" className ="btn btn-primary">purchase</button>
         <ItemCard item = {currentItem} key = {currentItem._id}/>
         </form>
