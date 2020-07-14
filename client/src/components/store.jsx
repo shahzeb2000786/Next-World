@@ -40,14 +40,12 @@ export default class Store extends Component{
 
 
 
-    //console.log(currentUserItems)
     axios.get(getPurchasedItemUrl)//get request to find the information of the item that has been clicked on by using the url defined above
       .then(response=>{//if the get request is successful the data/info on the item will be receieved in the callback.
-      let updatedCoinAmount = (parseInt(currentUser.Coins) - parseInt(response.data.Price)).toString() //computes the value of the user's coin amount after they have purchased the item and then converts it into a string
       let item = response.data //sets the item variable equal to response.data (which contains the purchased item's data)
-
       axios.get("http://localhost:5000/users/" + currentUserEmail)
         .then(user =>{
+          let updatedCoinAmount = (parseInt(user.data.Coins) - parseInt(response.data.Price)).toString()//creates updatedcoinamount variable which is equal to the current user's balance minus the purchased item's value.
            let currentUserItems = user.data.Items//sets currentUserItem's equal to the user's current items array
            currentUserItems.push(item)//appends the clicked/purchased item into the the user's items  array
 
@@ -57,13 +55,12 @@ export default class Store extends Component{
            }
            axios.post("http://localhost:5000/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
            .then(res => console.log(res.data))
-           .catch(err => console.log(err))
+           .catch(err => console.log(err))//catches errors for post requests made to /users/update
         })
-
+        .catch(err =>console.log(err))//catches errors in the get request made to /users/
       })
 
-
-      .catch(error => {//catc hes any errors in the get request
+      .catch(error => {//catches any errors in the get request which gets whihc is made to the itesms database
         console.log("failure")
         console.log(error)
       })

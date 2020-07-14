@@ -30,9 +30,6 @@ componentDidMount(){//runs when the page firsgl oads
   itemList(){
     return this.state.items.map(currentItem => {
       return <ItemCard item = {currentItem} key = {currentItem._id}/>
-
-
-
     })
   }
 
