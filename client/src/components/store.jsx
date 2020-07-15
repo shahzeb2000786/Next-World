@@ -18,7 +18,7 @@ export default class Store extends Component{
 
 
   componentDidMount(){//runs when the page firsgl oads
-    axios.get("http://localhost:5000/items/")//makes get request to items/ route
+    axios.get("https://next-world.herokuapp.com/items/")//makes get request to items/ route
     .then(response => {
       this.setState({
         items: response.data//sets the items array of the class equal to the get request data
@@ -33,7 +33,7 @@ export default class Store extends Component{
 
     e.preventDefault();
     let purchasedItemName = (e.target.id) //sets purchaseditemname equal to the name of the item that was clicked (in this case it targets the form id of the form that was submitted which has been set to the item's name)
-    let getPurchasedItemUrl = "http://localhost:5000/items/" + purchasedItemName   //sets a url which will be used to get the clicked item's info via a get request.
+    let getPurchasedItemUrl = "https://next-world.herokuapp.com/items/" + purchasedItemName   //sets a url which will be used to get the clicked item's info via a get request.
 
     let currentUser = JSON.parse(localStorage.getItem("User"))
     let currentUserEmail = currentUser.Email //creates a variable which stores the current user's email, which will be used to make a post request in this submit method as well as be used to get the current user's data via get request
@@ -43,7 +43,7 @@ export default class Store extends Component{
     axios.get(getPurchasedItemUrl)//get request to find the information of the item that has been clicked on by using the url defined above
       .then(response=>{//if the get request is successful the data/info on the item will be receieved in the callback.
       let item = response.data //sets the item variable equal to response.data (which contains the purchased item's data)
-      axios.get("http://localhost:5000/users/" + currentUserEmail)
+      axios.get("https://next-world.herokuapp.com/users/" + currentUserEmail)
         .then(user =>{
           let updatedCoinAmount = (parseInt(user.data.Coins) - parseInt(response.data.Price)).toString()//creates updatedcoinamount variable which is equal to the current user's balance minus the purchased item's value.
            let currentUserItems = user.data.Items//sets currentUserItem's equal to the user's current items array
@@ -53,7 +53,7 @@ export default class Store extends Component{
              coins: updatedCoinAmount,
              items: currentUserItems
            }
-           axios.post("http://localhost:5000/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
+           axios.post("https://next-world.herokuapp.com/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
            .then(res => console.log(res.data))
            .catch(err => console.log(err))//catches errors for post requests made to /users/update
         })
