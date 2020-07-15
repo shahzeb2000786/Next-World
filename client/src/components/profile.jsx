@@ -20,7 +20,7 @@ export default class Profile extends Component{
   componentDidMount(){
     let user = JSON.parse(localStorage.getItem("User"))//
     if (user != null){
-      axios.get("http://localhost:5000/users/"+ (user).Email)
+      axios.get("https://next-world.herokuapp.com/users/"+ (user).Email)
       .then(user => {
         this.setState({
           currentUser: JSON.stringify(user.data)
