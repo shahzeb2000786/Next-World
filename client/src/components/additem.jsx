@@ -47,7 +47,7 @@ onSubmit(e){
     rarity: this.state.rarity
   }
   console.log(item)
-  axios.post("http://localhost:5000/items/add", item)//posts to the items/add route which handles post requests to add new items into the total items inventory (the route handler for this post method is located within the items.js file)
+  axios.post("https://next-world.herokuapp.com/items/add", item)//posts to the items/add route which handles post requests to add new items into the total items inventory (the route handler for this post method is located within the items.js file)
   .then(res => console.log(res.data))
 
   this.setState({//resets all the variable states of the class whenevera form is submitted so a new user could be entered again
@@ -57,7 +57,7 @@ onSubmit(e){
 
 
 componentDidMount(){
-  axios.get("http:localhost5000/items/")
+  axios.get("https://next-world.herokuapp.com/items/")
   .then(response => {})
 }
 render(){

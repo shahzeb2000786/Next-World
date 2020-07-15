@@ -29,7 +29,7 @@ export default class Store extends Component{
       rarity: this.state.rarity
     }
     console.log(item)
-    axios.post("http://localhost:5000/items/add", item)//posts to the items/add route which handles post requests to add new items into the total items inventory (the route handler for this post method is located within the items.js file)
+    axios.post("https://next-world.herokuapp.com/items/add", item)//posts to the items/add route which handles post requests to add new items into the total items inventory (the route handler for this post method is located within the items.js file)
     .then(res => console.log(res.data))
 
     this.setState({//resets all the variable states of the class whenevera form is submitted so a new user could be entered again
@@ -45,7 +45,7 @@ export default class Store extends Component{
 
 
 componentDidMount(){//runs when the page firsgl oads
-  axios.get("http://localhost:5000/items/")//makes get request to items/ route
+  axios.get("https://next-world.herokuapp.com/items/")//makes get request to items/ route
   .then(response => {
     console.log(response)
     this.setState({

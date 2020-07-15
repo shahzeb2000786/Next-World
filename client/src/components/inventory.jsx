@@ -14,7 +14,7 @@ export default class Inventory extends Component{
   }
 
 componentDidMount(){//runs when the page firsgl oads
-  axios.get("http://localhost:5000/items/")//makes get request to items/ route
+  axios.get("https://next-world.herokuapp.com/items/")//makes get request to items/ route
   .then(response => {
     console.log(response)
     this.setState({
