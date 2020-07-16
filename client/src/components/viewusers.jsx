@@ -28,7 +28,7 @@ export default class ViewUsers extends Component{
 // -------------------------componentDid Mount--------------------------------
   componentDidMount(){// portion of code runs as soon as this jsx page is rendered
 
-    axios.get("http://localhost:5000/users/")//makes http request for users.jsx which returns all the items in the users database
+    axios.get("https://next-world.herokuapp.com/users/")//makes http request for users.jsx which returns all the items in the users database
       .then(response=> {//promise .then which is hit up if there is not error in retrieving items
       //  console.log(response.data)
       this.setState({//this sets the state of the users var in array whose members are json objects

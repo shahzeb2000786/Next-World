@@ -1,8 +1,9 @@
-import React from "react"
-import CSS from "./css/styles.css"
-import { Button } from "react-bootstrap"
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+/*jshint esversion: 6 */
+import React from "react";
+import CSS from "./css/styles.css";
+import { Button } from "react-bootstrap";
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 function Footer(){
   return (
 

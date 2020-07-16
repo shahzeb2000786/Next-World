@@ -9,7 +9,9 @@
   color: white;
 }
 
-
+.text-grey{
+  color: grey
+}
 
 .card-color{/*change stat cards color */
   background-color:#bbe1fa
@@ -19,23 +21,29 @@
  .card-width{  /*this class targets the statistics cards for individuals and centers them. */
   width: 20%;
   height:20%;
-  margin-left: 37.5%
+  margin-left: 37.5%;
+  overflow: auto;
+}
+
+.no-border{/* removes the border from inputs and forms*/
+  border: none;
 }
 
 .card-image{ /* this is the class which formats the images which gts put into the statistics cards*/
 height: 15%;
 width:40%;
 border-radius:50%;
+
 }
 
 .badge-icon-size{/*edits badge icon format for stat cards*/
   width: 20%;
 
 }
-.carousel-control-prev-icon {  /*inverts the arrow color to black so that you can see that */
+.carousel-control-prev-icon {  /*inverts the carousel arrow color to black so that you can see that */
   filter: invert(1);
 }
-.carousel-control-next-icon { /*inverts the arrow color to black so that you can see that */
+.carousel-control-next-icon { /*inverts the carousel arrow color to black so that you can see that */
   filter: invert(1);
 }
 
@@ -44,6 +52,9 @@ border-radius:50%;
   margin-top: 100px
 }
 
+.item-text{/*this class gets used to style item info card info so that the input text's width takes up the entire length of the concontainer that is it is located withintainer*/
+
+}
 
 .avatar-image{
   height: 10%;
