@@ -48,11 +48,11 @@ function SignUp (){
                  monthlyparticipation: "",
                  badgecount: "",
                  avatar: "",
-                 coins: "100000",
+                 coins: "20000",
 
                  items: [{Name: "Bostaff", Price: "0", Rarity: "Common"} ]
                }
-                 axios.post("http://localhost:5000/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
+                 axios.post("https://next-world.herokuapp.com/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)
                  .then(res => console.log(res.data))
             //  console.log(authenticatedResponse)
             }//end of the else statement

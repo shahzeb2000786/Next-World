@@ -14,8 +14,9 @@
 }
 
 .card-color{/*change stat cards color */
-  background-color:#bbe1fa
+  background-color:#bbe1fa;
   /* background-color:#e6f2ff */
+
 }
 
  .card-width{  /*this class targets the statistics cards for individuals and centers them. */

@@ -12,9 +12,7 @@ function ItemCard(props){//creates item card function which takeas an items obje
   let formAction = "/items/add"//this variable will be used as the form action for each of the item cards, so when the "purchase" button, the item will get added to the user's inventory
   return(
     <div >
-    <form className="no-border card-width text-center card-color mt-5" action = {formAction} method="post" >
-
-
+    <form className="no-border card-width text-center card-color mt-5 " action = {formAction} method="post" >
     <input className = "no-border text-center card-color" value = {props.item.Name} name= "name"/>
     <input className = "no-border text-center card-color" value = {props.item.Price} name= "price"/>
     <input  className = "no-border text-center card-color card-color" value = {props.item.Rarity} name= "rarity"/>

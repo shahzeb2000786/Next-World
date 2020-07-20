@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React, {Component} from "react";
-import axios from "axios";//imports axios to make get and post requests
+import axios from "axios";
 import Header from "./header.jsx";
 import Footer from "./footer.jsx";
 import CSS from "./css/styles.css";
@@ -40,28 +40,32 @@ export default class Store extends Component{
     let currentUserEmail = currentUser.Email; //creates a variable which stores the current user's email, which will be used to make a post request in this submit method as well as be used to get the current user's data via get request
 
 
-
     axios.get(getPurchasedItemUrl)//get request to find the information of the item that has been clicked on by using the url defined above
       .then(response=>{//if the get request is successful the data/info on the item will be receieved in the callback.
       let item = response.data; //sets the item variable equal to response.data (which contains the purchased item's data)
       axios.get("https://next-world.herokuapp.com/users/" + currentUserEmail)
         .then(user =>{
           let updatedCoinAmount = (parseInt(user.data.Coins) - parseInt(response.data.Price)).toString();//creates updatedcoinamount variable which is equal to the current user's balance minus the purchased item's value.
-           let currentUserItems = user.data.Items;//sets currentUserItem's equal to the user's current items array
-           currentUserItems.push(item);//appends the clicked/purchased item into the the user's items  array
+            if (updatedCoinAmount >-1){//beginning of if statement; checks if the user has enough coins or not to purchase the item
 
-           const updatedUserInfo = {//creates an object which will be sent via post request, to update the user's info
-             coins: updatedCoinAmount,
-             items: currentUserItems
-           };
-           axios.post("https://next-world.herokuapp.com/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
-           .then(res => console.log(res.data))
-           .catch(err => console.log(err));//catches errors for post requests made to /users/update
+              let currentUserItems = user.data.Items;//sets currentUserItem's equal to the user's current items array
+              currentUserItems.push(item);//appends the clicked/purchased item into the the user's items  array
+              const updatedUserInfo = {//creates an object which will be sent via post request, to update the user's info
+                coins: updatedCoinAmount,
+                items: currentUserItems
+              };
+              axios.post("https://next-world.herokuapp.com/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
+              .then(res => alert("Item has been purchased"))
+              .catch(err => alert(err.toString()));
+            }//end of if statement
+            else{
+              alert("You do not have enough coins")
+            }
         })
         .catch(err =>console.log(err));//catches errors in the get request made to /users/
       })
 
-      .catch(error => {//catches any errors in the get request which gets whihc is made to the itesms database
+      .catch(error => {
         console.log("failure");
         console.log(error);
       });
@@ -80,8 +84,7 @@ export default class Store extends Component{
         <ItemCard item = {currentItem} key = {currentItem._id}/>
         <button type="submit" className ="btn btn-primary text-center">purchase</button>
 
-</div>
-
+        </div>
         </form>
         </div>
       )
@@ -89,12 +92,13 @@ export default class Store extends Component{
     })
   }
 
+
   render(){
     return(
       <div>
 
       <Header/>
-      {this.itemList()}//calls the itemlist function contained within the class and renders it in between the header and footer
+      {this.itemList()} {/*calls the itemlist function contained within the class and renders it in between the header and footer*/}
       <Footer/>
       </div>
     )
