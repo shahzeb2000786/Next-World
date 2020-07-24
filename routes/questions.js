@@ -1,4 +1,5 @@
-const router = require ("express").Router()
+const router = require ("express").Router()//creates a variable which requires the router functionality of express which allowws for get and post requests
+
 let Question = require ("../models/questions.model")
 
 
@@ -29,3 +30,5 @@ const newQuestion = new Question ({
 })
 
 })
+
+module.exports = router;//exporst the router functionality which will be used in an app.use funciton in the server.js file to render and use. The server.js can then use the .get and .post functionality of the router which was defined in this file
