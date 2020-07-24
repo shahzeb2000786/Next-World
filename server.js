@@ -23,11 +23,12 @@ connection.once("open", ()=> {//oncethe connection variable "open" is "then it e
 
 
 const usersRouter = require ("./routes/users")//requires users.js from routes folder
-const itemsRouter = require ("./routes/items")//requires admins.js from routes folder
+const itemsRouter = require ("./routes/items")//requires items.js from routes folder
+const questionsRouter = require ("./routes/questions")
 
 app.use ("/users", usersRouter)//loads the contents of usersRouter when /users is targeted which enables get and post (and other api) requests for the "/users" route
-app.use("/items", itemsRouter)//loads the contents of adminsRouter when /admins is targeted which enables get and post (and other api) requests for the "/admins" route
-
+app.use("/items", itemsRouter)//loads the contents of itemsRouter when /admins is targeted which enables get and post (and other api) requests for the "/admins" route
+app.use("/questions", questionsRouter )// loads contents of itemsRouter when /questions is targeted which enables get and post (and other api) requests for the "/questions" route.
 
 
 if(process.env.NODE_ENV === 'production'){

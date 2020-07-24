@@ -55,7 +55,7 @@ userList (){//function which maps through the users array whicih contains json o
     return(
       <div>
       <Header/>
-    {this.userList()}//executes the usreList function of the class which maps through all the users and renders them in StatCard form
+    {this.userList()}{/*executes the usreList function of the class which maps through all the users and renders them in StatCard form*/}
       <Footer/>
       </div>
     )
