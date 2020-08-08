@@ -18,28 +18,29 @@ export default class Profile extends Component{
 
 //----------------------------------componentdidmount-----------------------------
   componentDidMount(){
-    let user = JSON.parse(localStorage.getItem("User"))//
+    let user = JSON.parse(localStorage.getItem("User"))//gets user info  from local storage and converts it into json
     if (user != null){
-      axios.get("https://next-world.herokuapp.com/users/"+ (user).Email)
+      axios.get("https://next-world.herokuapp.com/users/"+ (user).Email)//get requestd item info
       .then(user => {
+        console.log(JSON.stringify(user.data))
         this.setState({
           currentUser: JSON.stringify(user.data)
         })//end of set state
-        console.log(this.state.currentUser)
+        console.log(this.state.currentUser);
       })//end of .then
       .catch(error => {
-        console.log(error)
-      })//end of catch block
+        console.log(error);
+      });//end of catch block
     }//end of if statement
   }//end of componentdidmount
 
 inventoryList(){
-let currentUserObject = JSON.parse(this.state.currentUser).Items
-console.log(typeof(currentUserObject))
+let currentUserObject = JSON.parse(this.state.currentUser).Items;
+console.log(typeof(currentUserObject));
 
- let itemsArray = []
+ let itemsArray = [];
  for (var items in currentUserObject){
-   itemsArray.push(currentUserObject[items])
+   itemsArray.push(currentUserObject[items]);
  }
 return itemsArray.map(currentItem => {
     return <ItemCard item = {currentItem} key = {currentItem._id} />

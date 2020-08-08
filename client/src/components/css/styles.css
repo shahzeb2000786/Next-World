@@ -22,6 +22,7 @@
  .card-width{  /*this class targets the statistics cards for individuals and centers them. */
   width: 20%;
   height:20%;
+  margin: auto;
   margin-left: 37.5%;
   overflow: auto;
 }
@@ -50,7 +51,7 @@ border-radius:50%;
 
 .leaderboard-intro{/* this class formats the intro text that gets rendered within the carousel on the leaderboard page*/
   font-size: 100px;
-  margin-top: 100px
+  margin-top: 100px;
 }
 
 .item-text{/*this class gets used to style item info card info so that the input text's width takes up the entire length of the concontainer that is it is located withintainer*/
@@ -61,4 +62,12 @@ border-radius:50%;
   height: 10%;
   width: 10%;
 
+}
+
+.large-button{
+  height: 100;
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  background-color:#e6f2ff;
 }

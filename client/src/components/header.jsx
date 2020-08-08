@@ -21,7 +21,7 @@ function Header(){
     <div className = "header-footer-div pb-1">
     <div className="nav-item dropdown d-flex justify-content-between">
 
-      <a className="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a className="nav-link dropdown-toggle text-white ml-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Menu
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarDropdown">{/*all of the hrefs in this div are part of a menu bar which users can use to navigate to different pages*/}
@@ -32,14 +32,13 @@ function Header(){
       <a className = "text-grey" href="signup">Sign Up</a>
       <a className = "text-grey" href="profile">Profile</a>
       <a  className = "text-grey" href="store">Store</a>
-
+      <a  className = "text-grey" href="earn-coins">Earn Coins</a>
 
 
 
       <div className = "left-align pr-5 "> {/*this div contains the user's name and coin amount at the top right corner, and it contains an anchor tag, so when they click when they click on it it will take them to their profile page */}
       <a href = "profile">
-      <p className = "text-white">  {userName} </p>
-      <p className = "text-white">{userCoins} 💎</p>
+      <p className = "text-white">  {userName}   {userCoins} 💎 </p>
       </a>
       </div>
 

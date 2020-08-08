@@ -56,9 +56,9 @@ render(){
     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
 
     <div className="carousel-inner">
-      <div className="carousel-item active">
+      <div className="carousel-item active card-width pt-5  ">
 
-      <h1 className = "text-center mt-4  card-image">Leaderboard</h1>
+      <h1 className = "">Leaderboards</h1>
 
       </div>
 

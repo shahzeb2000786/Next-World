@@ -25,20 +25,20 @@ connection.once("open", ()=> {//oncethe connection variable "open" is "then it e
 const usersRouter = require ("./routes/users")//requires users.js from routes folder
 const itemsRouter = require ("./routes/items")//requires items.js from routes folder
 const questionsRouter = require ("./routes/questions")
-
+const quizzesRouter = require ("./routes/quizzes")
 app.use ("/users", usersRouter)//loads the contents of usersRouter when /users is targeted which enables get and post (and other api) requests for the "/users" route
 app.use("/items", itemsRouter)//loads the contents of itemsRouter when /admins is targeted which enables get and post (and other api) requests for the "/admins" route
-app.use("/questions", questionsRouter )// loads contents of itemsRouter when /questions is targeted which enables get and post (and other api) requests for the "/questions" route.
+app.use("/questions", questionsRouter)// loads contents of questionsRouter when /questions is targeted which enables get and post (and other api) requests for the "/questions" route.
+app.use("/quizzes", quizzesRouter)
 
 
 if(process.env.NODE_ENV === 'production'){
-
   app.use(express.static('client/build'));
-  console.log("prodjction bjild")
+  console.log("production build")
   app.get('*', (req,res)=>{
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   });
 }
 app.listen(port,()=>{//servers listens to the specified port
-  console.log("Server is running on port : ${port}");
+  console.log("Server is running on port:" + port);
 })
