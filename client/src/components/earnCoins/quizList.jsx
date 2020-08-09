@@ -17,10 +17,9 @@ export default class QuizList extends Component{
     .then(question => {
       console.log(question.data)
       this.setState({
-        quizzes: [question.data]
+        quizzes: question.data
       })//end of this.setSTate
-      this.state.quizzes.push("Hello")
-      this.state.quizzes.map(quiz => {console.log(quiz.QuizName)})
+      this.state.quizzes.map(quiz => {console.log(quiz)})
     })//end of .then statement
     .catch(error => {
       console.log(error)
