@@ -6,7 +6,7 @@ let Question = require ("../models/questions.model")
 
 router.route("/").get((req,res)=> {
 
-  Question.findOne()
+  Question.find()
   .then(question => res.json(question))//finds all entries in the users database and sends this data using the res.json and res.json is equivalent to res.send (users can be called anything inside the .then)
   .catch(err => res.status(400).json("Error " + err))//catches any errors and sends the error if there are any.
 })

@@ -3,7 +3,7 @@ const Quiz = require ("../models/quizzes.model")
 
 
 router.route("/").get((req,res)=>{
-  Quiz.findOne()
+  Quiz.find()
   .then(item => res.json(item))
   .catch(err => res.status(400).json("Error " + err))//catches any errors and sends the error if there are any.
 })
