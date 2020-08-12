@@ -10,7 +10,9 @@ import Profile from "./components/profile.jsx"
 import Store from "./components/store.jsx"
 import EarnCoinsCarousel from "./components/earnCoins/earnCoinsCarousel.jsx"
 import QuizList from "./components/earnCoins/quizList.jsx"
+import QuizInfo from "./components/earnCoins/quizInfo.jsx"
 import {BrowserRouter as Router, Route} from "react-router-dom"//imports Browser Router in the form of Router and route from react-router-dom
+
 import "bootstrap/dist/css/bootstrap.min.css"//requires the normal bootstrap that was installed
 import './App.css';
 
@@ -33,6 +35,7 @@ function App(){
      <Route path = "/signup" exact component = {SignUp}/>
      <Route path = "/earn-coins" exact component = {EarnCoinsCarousel}/>
      <Route path = "/quiz-list" exact component = {QuizList}/>
+     <Route path = "/quiz-info/:id" exact component = {QuizInfo}/>
        </Router>
     )
   }

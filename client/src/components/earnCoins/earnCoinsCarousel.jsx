@@ -17,7 +17,7 @@ export default class EarnCoinsCarousel extends Component{
 <div>
       <Header/>
         <div className = "text-center ">
-        <a href="/viewUsers">
+        <a href="/quiz-list">
           <h1>  Take Quizzes</h1>
         </a>
         </div>

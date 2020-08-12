@@ -71,3 +71,28 @@ border-radius:50%;
   padding-bottom: 10%;
   background-color:#e6f2ff;
 }
+
+
+
+
+
+
+
+.quiz-info-list{
+  background-color: #e6f2ff;
+  width: 18%;
+  border-color: black;
+  border-style: double;
+  margin: auto;
+}
+.quiz-info{/*sets the background color and other attributes for the div which contains info about a quiz that a user has clicked on*/
+  background-color: #e6f2ff;
+  width: 30%;
+  border-color: black;
+  border-style: double;
+  margin: auto;
+}
+.quiz-info-text{/*targets the different texts in the div which contains info about a quiz the user has clicked as well as the quizzes in the quiz list page*/
+  color: gray;
+
+}
