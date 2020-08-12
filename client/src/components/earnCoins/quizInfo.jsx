@@ -20,7 +20,7 @@ export default class QuizList extends Component{
   componentDidMount(){
     console.log(this.props.match.params.id)
     console.log("Hello")
-    axios.get("http://next-world.herokuapp.com/quizzes/" + this.props.match.params.id.toString())
+    axios.get("https://next-world.herokuapp.com/quizzes/" + this.props.match.params.id.toString())
     .then(quizInfo => {
     //  console.log(quizzes.data)
     console.log(quizInfo.data)
