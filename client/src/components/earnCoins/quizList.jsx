@@ -24,7 +24,6 @@ export default class QuizList extends Component{
   componentDidMount(){
     axios.get("https://next-world.herokuapp.com/quizzes/")
     .then(quizzes => {
-    //  console.log(quizzes.data)
       this.setState({
         quizzes: quizzes.data
       })//end of this.setSTate

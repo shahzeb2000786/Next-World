@@ -29,10 +29,10 @@ function Header(){
         <a className="dropdown-item" href="viewusers">View Users</a>
         <a className="dropdown-item" href="additem">Add Item</a>
       </div >
-      <a className = "text-grey" href="signup">Sign Up</a>
-      <a className = "text-grey" href="profile">Profile</a>
-      <a  className = "text-grey" href="store">Store</a>
-      <a  className = "text-grey" href="earn-coins">Earn Coins</a>
+      <a className = "text-grey" href="/signup">Sign Up</a>
+      <a className = "text-grey" href="/profile">Profile</a>
+      <a  className = "text-grey" href="/store">Store</a>
+      <a  className = "text-grey" href="/earn-coins">Earn Coins</a>
 
 
 
