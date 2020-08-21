@@ -4,7 +4,7 @@ import CSS from "./css/styles.css";
 
 function StatsCard(props){
   return(
-    <div className="card-width text-center card-color mt-5" >
+    <div className="card-width card-border text-center card-color mt-5" >
       <img  src="/images/avatars/boy1" className=" card-image mt-2" alt="image-of-a-person"></img>
       <div className="pb-3" >
       <a>

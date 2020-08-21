@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 function Footer(){
   return (
 
-    <div className = "header-footer-div fixed-bottom">
+    <div className = "header-footer-div fixed-bottom text-center">
     <div>
     <img className = "card-width " src = "https://www.nextstepma.com/wp-content/uploads/2017/12/nextstep-logo.png"></img>
     </div>

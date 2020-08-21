@@ -19,12 +19,15 @@
 
 }
 
- .card-width{  /*this class targets the statistics cards for individuals and centers them. */
+ .card-width{  /*this class targets the statistics cards for individuals,centers them, and adjusts . */
   width: 20%;
   height:20%;
   margin: auto;
-  margin-left: 37.5%;
-  overflow: auto;
+
+}
+.card-border{ /* this class targets the statistics card for individuald and adds a border */
+  border-color: black;
+  border-style: double;
 }
 
 .no-border{/* removes the border from inputs and forms*/
@@ -35,6 +38,7 @@
 height: 15%;
 width:40%;
 border-radius:50%;
+
 
 }
 
@@ -94,5 +98,15 @@ border-radius:50%;
 }
 .quiz-info-text{/*targets the different texts in the div which contains info about a quiz the user has clicked as well as the quizzes in the quiz list page*/
   color: gray;
+}
 
+
+
+.question-div{/*targts the question divs which get rendered when a user begins a quiz*/
+  border-radius: 15px 15px 15px 15px;
+  width: 40%;
+  height:40%;
+  margin: auto;
+  border-color: black;
+  border-style: double;
 }
