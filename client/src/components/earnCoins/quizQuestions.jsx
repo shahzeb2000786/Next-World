@@ -10,18 +10,24 @@ export default class QuizQuestions extends Component{
     super(props)
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      questions: []
+      questions: [],
+      prize: 0
     }
   }
 
 //componentDIdMount makes a get request using express url parameters to get back questions for a specific quiz
 // and sets the "questions" state value equal to the questions receieved from the get request
   componentDidMount(){
+    let user = localStorage.getItem("User")
+
+
+
     console.log ( "Hello")
     axios.get("https://next-world.herokuapp.com/quizzes/" + this.props.match.params.id.toString())
     .then(quiz => {
       this.setState({
-        questions: quiz.data.Questions
+        questions: quiz.data.Questions,
+        prize: quiz.data.Prize
       })//this.setState
       console.log(this.state.questions)
     })//.then
@@ -31,6 +37,8 @@ export default class QuizQuestions extends Component{
   onSubmit(e){
     e.preventDefault();
     let quizQuestions = (document.getElementsByName("selectedOption"))
+    let questionsAnsweredCorrectly = 0
+    let totalQuestions = 0
     quizQuestions.forEach((question, index) => {
       if (question.id != null){
          //console.log((question.option[2].checked))
@@ -40,11 +48,34 @@ export default class QuizQuestions extends Component{
               console.log("YOur answer was " + possibleOption.value)
               console.log("The correct answer was " +  question.id)
               console.log(possibleOption.value == question.id)
+              questionsAnsweredCorrectly = questionsAnsweredCorrectly + 1
+              totalQuestions = quizQuestions.length
             }//if
         }//for
       }//if
     });//foreach
 
+    let percentageAnswered = 100*questionsAnsweredCorrectly/totalQuestions
+    let user = JSON.parse(localStorage.getItem("User"))
+    let currentUserEmail = user.Email
+    if (percentageAnswered > 75.0){
+      console.log("success")
+      axios.get("https://next-world.herokuapp.com/users/" + user.Email)
+      .then(user => {
+        let updatedCoinAmount = (parseInt(user.data.Coins) + parseInt(this.state.prize)).toString();//creates updatedcoinamount variable which is equal to the current user's balance minus the purchased item's value.
+        let currentUserItems = user.data.Items
+        console.log(updatedCoinAmount)
+        const updatedUserInfo = {//creates an object which will be sent via post request, to update the user's info
+          coins: updatedCoinAmount,
+          items: currentUserItems
+        };//updatedUserInfo
+        axios.post("https://next-world.herokuapp.com/users/update/" + currentUserEmail, updatedUserInfo)//post request to update the user's info after they click purchase for an item
+        .then(res => console.log(res))
+        .catch(err => alert(err.toString()));
+      })//.then for axios.get
+
+    }//if
+    console.log(percentageAnswered)
   }//onSubmit
 
 quizQuestionList(){

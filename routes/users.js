@@ -71,9 +71,9 @@ router.route("/:name").get((req,res) => {//this is a get route viewing a specifi
 
 router.route("/update/:email").post((req,res)=>{// this will execute if /users/update/"someEmail" is hit up. for explaination on this route see the get route above
   let currentUser =  {}
-  User.findOne({Email:req.params.email})
-    .then(user => currentUser = user)
-    .catch(err=> res.status(400).json("Error:" + err))
+  // User.findOne({Email:req.params.email})
+  //   .then(user => currentUser = user)
+  //   .catch(err=> res.status(400).json("Error:" + err))
 
 
 
@@ -82,9 +82,5 @@ router.route("/update/:email").post((req,res)=>{// this will execute if /users/u
     .catch(err=> res.status(400).json("Error: " + err))
 
     })//updates the user by first finding the unique user by using their email field
-
-
-
-
 
 module.exports = router;//exporst the router functionality which will be used in an app.use funciton in the server.js file to render and use. The server.js can then use the .get and .post functionality of the router which was defined in this file
