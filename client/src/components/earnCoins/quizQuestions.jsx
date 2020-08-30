@@ -79,7 +79,8 @@ export default class QuizQuestions extends Component{
   }//onSubmit
 
 quizQuestionList(){
-  return this.state.questions.map(question => {
+  let quizLength = this.state.questions.length
+  return this.state.questions.map((question,i) => {
     return (
   <div className = "mb-3 mt-3">
     <div className = " card-color question-div pb-2  pt-2">
@@ -95,18 +96,21 @@ quizQuestionList(){
       <br></br>
       <input type="radio" name="option" value={question.Option4} /> {"D. " + question.Option4}
       <br></br>
-      <button className = "btn btn-primary" type = "submit">Submit</button>
       </form>
     </div>
   </div>
     )
   })
+
 }
   render(){
     return(
       <div>
       <Header/>
       {this.quizQuestionList()}
+      <div className = "text-center">
+      <button onClick = {this.onSubmit} className = "btn btn-primary">Submit</button>
+      </div>
       <Footer/>
       </div>
     )//return
