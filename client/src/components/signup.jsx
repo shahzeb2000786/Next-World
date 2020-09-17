@@ -41,7 +41,7 @@ function SignUp (){
               const user = {//creates a mongo item using the schema defined under users.model.js and for initial sign up only the username,name, and email will be saved and the user/admin will enter all the otheri nformation in later
                  username: Username,
                  name: Name,
-                 belt: "White",
+                 belt: "None",
                  age:  "",
                  email: Email,
                  commitment: "",

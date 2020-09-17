@@ -71,16 +71,20 @@ router.route("/:name").get((req,res) => {//this is a get route viewing a specifi
 
 router.route("/update/:email").post((req,res)=>{// this will execute if /users/update/"someEmail" is hit up. for explaination on this route see the get route above
   let currentUser =  {}
-  // User.findOne({Email:req.params.email})
-  //   .then(user => currentUser = user)
-  //   .catch(err=> res.status(400).json("Error:" + err))
 
-
-
-    User.findOneAndUpdate({Email:req.params.email}, {Coins: req.body.coins, Items: req.body.items})
-    .then(user => res.json(user))//sends the user info via server
+  if (req.body.belt != null){//this if statement is for updating a user's belts
+    //console.log("user does not currently have a belt")
+    User.findOneAndUpdate({Email: req.params.email}, {Belt: req.body.belt})
+    .then(user => res.json(user))
     .catch(err=> res.status(400).json("Error: " + err))
+  }
+  else{//this else statement is for wehn a user purchases an item or receieves a gift such as coins or items
+  User.findOneAndUpdate({Email:req.params.email}, {Coins: req.body.coins, Items: req.body.items, Belt: req.body.belt})
+  .then(user => res.json(user))//sends the user info via server
+  .catch(err=> res.status(400).json("Error: " + err))
 
-    })//updates the user by first finding the unique user by using their email field
+}//updates the user by first finding the unique user by using their email field
+})
+
 
 module.exports = router;//exporst the router functionality which will be used in an app.use funciton in the server.js file to render and use. The server.js can then use the .get and .post functionality of the router which was defined in this file
