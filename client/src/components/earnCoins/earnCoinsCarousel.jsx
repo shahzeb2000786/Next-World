@@ -20,11 +20,9 @@ export default class EarnCoinsCarousel extends Component{
     if (user != null){
       axios.get("https://next-world.herokuapp.com/users/"+ (user).Email)//get requestd item info
       .then(user => {
-        //console.log(JSON.stringify(user.data))
         this.setState({
           currentUser: JSON.stringify(user.data)
         })//end of set state
-      //  console.log(this.state.currentUser);
       })//end of .then
       .catch(error => {
         console.log(error);
@@ -53,7 +51,7 @@ export default class EarnCoinsCarousel extends Component{
 //console.log(this.state.currentUser)
 let JSONUserData = (JSON.parse(this.state.currentUser))
 console.log (JSONUserData.Belt)
-    if (JSONUserData.Belt == "None"){//checks if the user is a beginner and displays an intro video if they are
+    if (JSONUserData.Belt == "None" || JSONUserData.Belt == null){//checks if the user is a beginner and displays an intro video if they are
       console.log("user is a noob")
       return (
         <div>
@@ -72,7 +70,7 @@ console.log (JSONUserData.Belt)
         <Header/>
           <div className = "text-center ">
           <a href="/quiz-list">
-            <h1>  Take Quizzes</h1>
+            <h1>Take Quizzes</h1>
           </a>
           </div>
         <Footer/>

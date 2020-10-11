@@ -74,23 +74,59 @@ export default class Store extends Component{
 
 
   itemList(){
-    return this.state.items.map(currentItem => {
+    let clusteredItems = []
+    let currentUserInventory = this.state.items
+    while (currentUserInventory.length > 3){
+      clusteredItems.push(currentUserInventory.splice(0,3))
+    }
+    if (currentUserInventory.length > 0){
+      clusteredItems.push(currentUserInventory)
+    }
 
-      return (
-        <div >
-        <form   id = {currentItem.Name} onSubmit = {this.onSubmit} action= "items/add" method="post">
 
-        <div className = "text-center">
-        <ItemCard item = {currentItem} key = {currentItem._id}/>
-        <button type="submit" className ="btn btn-primary text-center">purchase</button>
+   return clusteredItems.map(currentItemRow => {
+     let currentRowCount = currentItemRow.length
+       return (
+         <div>
 
-        </div>
-        </form>
-        </div>
-      )
 
-    })
+         <div className = "d-flex" >
+         <form id = {currentItemRow[0].Name} onSubmit = {this.onSubmit}  method="post">
+         <div className = "text-center">
+         <ItemCard  item = {currentItemRow[0]} key = {currentItemRow[0]._id}/>
+         <button type="submit" className ="btn btn-primary ">purchase</button>
+         </div>
+         </form>
+
+         <form  id = {currentItemRow[1].Name} onSubmit = {this.onSubmit}  method="post">
+         <div className = "text-center">
+         <ItemCard item = {currentItemRow[1]} key = {currentItemRow[1]._id}/>
+         <button type="submit" className ="btn btn-primary text-center">purchase</button>
+         </div>
+         </form>
+
+         <form  id = {currentItemRow[2].Name} onSubmit = {this.onSubmit}  method="post">
+         <div className = "text-center">
+         <ItemCard item = {currentItemRow[2]} key = {currentItemRow[2]._id}/>
+         <button type="submit" className ="btn btn-primary text-center">purchase</button>
+         </div>
+         </form>
+
+         </div>
+
+
+         </div>
+       )
+
+
+   }) //outer return
+
+
+
+
   }
+
+
 
 
   render(){
