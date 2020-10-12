@@ -16,6 +16,7 @@ export default class EarnCoinsCarousel extends Component{
 
   }//end of construc tor
   componentDidMount(){
+    
     let user = JSON.parse(localStorage.getItem("User"))
     if (user != null){
       axios.get("https://next-world.herokuapp.com/users/"+ (user).Email)//get requestd item info

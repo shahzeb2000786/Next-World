@@ -7,6 +7,13 @@ router.route("/").get((req,res) => {//this is a get route viewing users which wi
   .catch(err => res.status(400).json("Error " + err))//catches any errors and sends the error if there are any.
 });
 
+router.route("/leaderboard").get((req,res) => {
+  User.find({}).sort({Coins: -1}).collation({locale:"en_US", numericOrdering:true}).limit(3)//this users coallition to njmericallhy order the coins instead of alphanmerically ordering them because the coins are stored as strings in the database and this extra is needed in order to numerically order them.
+    .then(leaderboardUsers => res.json(leaderboardUsers)
+    .catch(err => res.status(400).json("Error" + err))
+
+)});
+
 router.route("/:email").get((req,res)=>{// this will render when the /users/"someemail" is hit up. this is a get route which uses params to render the object with  speciifed if a request is made to that route
   User.findOne({Email: req.params.email})//finds the user byu their email (emaoil was passed in as a parameter in the route)
     .then(user=>res.json(user))//sends user data if there is no error

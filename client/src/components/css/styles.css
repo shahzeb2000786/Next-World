@@ -110,3 +110,17 @@ border-radius:50%;
   border-color: black;
   border-style: double;
 }
+
+
+
+
+
+.gold-div{
+  background-color: #D6aF36;
+}
+.silver-div{
+  background-color: #D7D7D7;
+}
+.bronze-div{
+  background-color: #d9f7f7;
+}

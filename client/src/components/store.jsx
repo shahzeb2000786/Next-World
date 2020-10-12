@@ -89,14 +89,14 @@ export default class Store extends Component{
        return (
          <div>
 
+         <div className = "d-flex pr-5" >
 
-         <div className = "d-flex" >
-         <form id = {currentItemRow[0].Name} onSubmit = {this.onSubmit}  method="post">
-         <div className = "text-center">
-         <ItemCard  item = {currentItemRow[0]} key = {currentItemRow[0]._id}/>
-         <button type="submit" className ="btn btn-primary ">purchase</button>
-         </div>
-         </form>
+           <form id = {currentItemRow[0].Name} onSubmit = {this.onSubmit}  method="post">
+           <div className = "text-center">
+           <ItemCard  item = {currentItemRow[0]} key = {currentItemRow[0]._id}/>
+           <button type="submit" className ="btn btn-primary ">purchase</button>
+           </div>
+           </form>
 
          <form  id = {currentItemRow[1].Name} onSubmit = {this.onSubmit}  method="post">
          <div className = "text-center">
@@ -117,7 +117,6 @@ export default class Store extends Component{
 
          </div>
        )
-
 
    }) //outer return
 
