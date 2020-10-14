@@ -21,7 +21,7 @@ onLeaderboardCellHover(e){
   componentDidMount(){
     console.log(MaterialTable)
 
-    axios.get("http://localhost:5000/users/leaderboard")
+    axios.get("https://next-world.herokuapp.com/users/leaderboard")
     .then(response => {
       console.log(response.data)
       this.setState({users: response.data})
