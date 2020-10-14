@@ -10,7 +10,7 @@
 }
 
 .text-grey{
-  color: grey
+  color: grey;
 }
 
 .card-color{/*change stat cards color */
@@ -122,5 +122,5 @@ border-radius:50%;
   background-color: #D7D7D7;
 }
 .bronze-div{
-  background-color: #d9f7f7;
+  background-color: #e6f2ff;
 }

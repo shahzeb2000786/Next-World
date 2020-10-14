@@ -8,7 +8,7 @@ router.route("/").get((req,res) => {//this is a get route viewing users which wi
 });
 
 router.route("/leaderboard").get((req,res) => {
-  User.find({}).sort({Coins: -1}).collation({locale:"en_US", numericOrdering:true}).limit(3)//this users coallition to njmericallhy order the coins instead of alphanmerically ordering them because the coins are stored as strings in the database and this extra is needed in order to numerically order them.
+  User.find({}).sort({Coins: -1}).collation({locale:"en_US", numericOrdering:true}).limit(10)//this users coallition to njmericallhy order the coins instead of alphanmerically ordering them because the coins are stored as strings in the database and this extra is needed in order to numerically order them.
     .then(leaderboardUsers => res.json(leaderboardUsers)
     .catch(err => res.status(400).json("Error" + err))
 

@@ -9,9 +9,13 @@ import MaterialTable from "material-table";
 export default class Leaderboard extends Component{
   constructor (props){
     super(props)
+    this.onLeaderboardCellHover = this.onLeaderboardCellHover.bind(this)
     this.state = {users: []}//this.state
   }//constructor
 
+onLeaderboardCellHover(e){
+  console.log(e)
+}
 
 
   componentDidMount(){
@@ -37,7 +41,7 @@ returnLeaderboard(users){//users will be an array of user objects retrieved from
     else if(count == 3){leaderboardCellColorClass = "bronze-div"}
     else{leaderboardCellColorClass = "none"}
     return (
-        <div className = "border bronze-div border-black w-100 d-flex justify-content-between pb-3 pt-3 pl-3 pr-3 ">
+        <div onMouseEnter = {() => this.onLeaderboardCellHover()} className = "border bronze-div border-black w-100 d-flex justify-content-between pb-3 pt-3 pl-3 pr-3 ">
         <h3 className = "">{count}. </h3>
         <h3 className = "">{user.Email}</h3>
         <h3 className = ""> {user.Coins} 💎</h3>
@@ -53,7 +57,13 @@ returnLeaderboard(users){//users will be an array of user objects retrieved from
 
       <Header/>
 
-      <h1 className = "text-center">Leaderboards</h1>
+      <h1 className = "text-center mt-2 mb-2">Leaderboards</h1>
+      <div className = "d-flex justify-content-around mt-3 mb-3">
+      <a className = "text-grey" href = "">Coins</a>
+      <a className = "text-grey" href = "">Participation</a>
+      <a className = "text-grey" href = "">Badges</a>
+
+      </div>
       {this.returnLeaderboard(this.state.users)}
       <Footer/>
       </div>
