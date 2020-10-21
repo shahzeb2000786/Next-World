@@ -38,6 +38,9 @@ function SignUp (){
               const Name = authenticatedResponse.name
 
               LoginUser(authenticatedResponse.email)//this calls the loginUser function in the class, (this function sets the currentUser equal to the authenticatedusers info (which is fetched using from the mongo database using an http get request)
+              var date = new Date();
+              var currentMonth = date.getMonth();
+              var currentDayOfMonth = date.getDate();
               const user = {//creates a mongo item using the schema defined under users.model.js and for initial sign up only the username,name, and email will be saved and the user/admin will enter all the otheri nformation in later
                  username: Username,
                  name: Name,
@@ -45,11 +48,11 @@ function SignUp (){
                  age:  "",
                  email: Email,
                  commitment: "",
-                 monthlyparticipation: "",
+                 monthlyparticipation: {currentMonth: [currentDayOfMonth]},
+                 yearlyparticipation: {months: []},
                  badgecount: "",
                  avatar: "",
                  coins: "20000",
-
                  items: [{Name: "Bostaff", Price: "0", Rarity: "Common"} ]
                }
                  axios.post("https://next-world.herokuapp.com/users/add", user)//post request made to the /users/add route which saves users objects and the route handling for this post request is located witin the users.js file)

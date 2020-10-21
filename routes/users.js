@@ -28,6 +28,7 @@ router.route("/add").post((req,res)=>{//this is a post route for adding users wh
   const email = req.body.email
   const commitment = req.body.commitment
   const monthlyparticipation = req.body.monthlyparticipation
+  const yearlyparticipation = req.body.yearlyparticipation
   const badgecount = req.body.badgecount
   const avatar = req.body.avatar
   const coins = req.body.coins
@@ -41,6 +42,7 @@ const newUser = new User ({//creates a new user from the user model which was im
   Email: email,
   Commitment: commitment,
   MonthlyParticipation: monthlyparticipation,
+  YearlyParticipation: yearlyparticipation,
   BadgeCount: badgecount,
   Avatar: avatar,
   Coins: coins,

@@ -19,7 +19,6 @@ onLeaderboardCellHover(e){
 
 
   componentDidMount(){
-    console.log(MaterialTable)
 
     axios.get("https://next-world.herokuapp.com/users/leaderboard")
     .then(response => {
@@ -62,8 +61,8 @@ returnLeaderboard(users){//users will be an array of user objects retrieved from
       <a className = "text-grey" href = "">Coins</a>
       <a className = "text-grey" href = "">Participation</a>
       <a className = "text-grey" href = "">Badges</a>
-
       </div>
+
       {this.returnLeaderboard(this.state.users)}
       <Footer/>
       </div>
