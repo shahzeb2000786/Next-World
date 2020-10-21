@@ -12,7 +12,7 @@ Username:{
   Age: String,
   Email: {type: String, unique: true},
   Commitment: String,
-  MonthlyParticipation: Object,
+  MonthlyParticipation: Array,
   YearlyParticipation: Object,
   ParticipationRecords: Array,
   TotalParticipation: String,
