@@ -1,0 +1,126 @@
+
+
+.header-footer-div{/* this edits the format/color of the header and footer divs*/
+  /* background-color: 	#0f4c75 */
+  background-color: #cce6ff;
+}
+
+.title-color{/*changes title color */
+  color: white;
+}
+
+.text-grey{
+  color: grey;
+}
+
+.card-color{/*change stat cards color */
+  background-color:#bbe1fa;
+  /* background-color:#e6f2ff */
+
+}
+
+ .card-width{  /*this class targets the statistics cards for individuals,centers them, and adjusts . */
+  width: 20%;
+  height:20%;
+  margin: auto;
+
+}
+.card-border{ /* this class targets the statistics card for individuald and adds a border */
+  border-color: black;
+  border-style: double;
+}
+
+.no-border{/* removes the border from inputs and forms*/
+  border: none;
+}
+
+.card-image{ /* this is the class which formats the images which gts put into the statistics cards*/
+height: 15%;
+width:40%;
+border-radius:50%;
+
+
+}
+
+.badge-icon-size{/*edits badge icon format for stat cards*/
+  width: 20%;
+
+}
+.carousel-control-prev-icon {  /*inverts the carousel arrow color to black so that you can see that */
+  filter: invert(1);
+}
+.carousel-control-next-icon { /*inverts the carousel arrow color to black so that you can see that */
+  filter: invert(1);
+}
+
+.leaderboard-intro{/* this class formats the intro text that gets rendered within the carousel on the leaderboard page*/
+  font-size: 100px;
+  margin-top: 100px;
+}
+
+.item-text{/*this class gets used to style item info card info so that the input text's width takes up the entire length of the concontainer that is it is located withintainer*/
+
+}
+
+.avatar-image{
+  height: 10%;
+  width: 10%;
+
+}
+
+.large-button{
+  height: 100;
+  width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  background-color:#e6f2ff;
+}
+
+
+
+
+
+
+
+.quiz-info-list{
+  background-color: #e6f2ff;
+  width: 18%;
+  border-color: black;
+  border-style: double;
+  margin: auto;
+}
+.quiz-info{/*sets the background color and other attributes for the div which contains info about a quiz that a user has clicked on*/
+  background-color: #e6f2ff;
+  width: 30%;
+  border-color: black;
+  border-style: double;
+  margin: auto;
+}
+.quiz-info-text{/*targets the different texts in the div which contains info about a quiz the user has clicked as well as the quizzes in the quiz list page*/
+  color: gray;
+}
+
+
+
+.question-div{/*targts the question divs which get rendered when a user begins a quiz*/
+  border-radius: 15px 15px 15px 15px;
+  width: 40%;
+  height:40%;
+  margin: auto;
+  border-color: black;
+  border-style: double;
+}
+
+
+
+
+
+.gold-div{
+  background-color: #D6aF36;
+}
+.silver-div{
+  background-color: #D7D7D7;
+}
+.bronze-div{
+  background-color: #e6f2ff;
+}
